@@ -6,12 +6,13 @@
 #    By: larosale <larosale@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 11:31:09 by larosale          #+#    #+#              #
-#    Updated: 2020/07/05 01:23:45 by larosale         ###   ########.fr        #
+#    Updated: 2020/09/13 20:09:28 by larosale         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 CFLAGS		= -Wall -Werror -Wextra
+NODEPS		= clean fclean re
 SRCS_REG	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_memchr.c ft_memcmp.c ft_strlen.c ft_strlcpy.c ft_strlcat.c \
 			ft_strchr.c ft_strrchr.c ft_strnstr.c ft_strncmp.c ft_atoi.c \
@@ -24,7 +25,8 @@ SRCS_REG	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_substr_utf8.c ft_math_log10.c ft_math_floor.c ft_math_pow.c \
 			ft_math_ipow.c ft_math_frexp.c ft_round_double.c ft_isnan.c \
 			ft_isposinf.c ft_isneginf.c ft_strins.c ft_dtoa.c \
-			ft_signbit.c ft_stripzeros.c ft_convert_double.c \
+			ft_signbit.c ft_stripzeros.c ft_convert_double.c ft_absd.c \
+			ft_math_arclen.c get_next_line.c \
 			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 			ft_lstmap.c
@@ -41,11 +43,14 @@ $(NAME): $(OBJS_REG)
 	@ar rc $(NAME) $?
 	@ranlib $(NAME)
 	@echo "\033[90m[\033[32mSuccess\033[90m]\033[32m Successfully \
-	added $? to Libft.\033[0m"
+	compiled Libft\033[0m"
 
-# Include all .d dependency files to the Makefile
+# Include all .d dependency files to the Makefile.
+# Including dependencies is conditional - it shall not work when cleaning.
 
+ifeq (0, $(words $(findstring $(MAKECMDGOALS), $(NODEPS))))
 -include $(DEPS)
+endif
 
 # Generate a dependency file for each source file
 

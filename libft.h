@@ -6,7 +6,7 @@
 /*   By: larosale <larosale@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 12:36:47 by larosale          #+#    #+#             */
-/*   Updated: 2020/07/05 02:25:07 by larosale         ###   ########.fr       */
+/*   Updated: 2020/08/14 15:58:41 by larosale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,8 @@ int					ft_isnan(double input);
 int					ft_isposinf(double input);
 int					ft_isneginf(double input);
 int					ft_signbit(double input);
+double				ft_absd(double d);
+double				ft_math_arclen(double x, double y);
 
 /*
 **----------------------------Linked lists--------------------------------------
@@ -151,5 +153,39 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+
+/*
+**----------------------------Get next line-------------------------------------
+*/
+
+/*
+** BUFFER_SIZE determines the reading buffer size.
+*/
+
+# define BUFFER_SIZE 32
+
+/*
+** REM_LINE and REM_BUFF flags set the source of remainder to be cutted
+** for the use of the "cut_remainder" function.
+*/
+
+# define REM_LINE 1
+# define REM_BUFF 0
+
+/*
+** These flags set the status for "free_memory" function. MEM_EOF
+** indicates that end of file was reached. MEM_ERINIT and MEM_ERREAD
+** signal an error on initialization or reading a file, respectively.
+** MEM_REMCUT and MEM_REMAPP are used when remainder cutting or appending
+** to the line occurred.
+*/
+
+# define MEM_EOF 0
+# define MEM_ERINIT -10
+# define MEM_ERREAD -11
+# define MEM_REMCUT 10
+# define MEM_REMAPP 11
+
+int					get_next_line(int fd, char **line);
 
 #endif
