@@ -6,7 +6,7 @@
 /*   By: larosale <larosale@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 16:53:37 by larosale          #+#    #+#             */
-/*   Updated: 2020/05/16 20:23:28 by larosale         ###   ########.fr       */
+/*   Updated: 2020/06/03 14:04:23 by larosale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char					**ft_split(char const *s, char c)
 	size_t			word_length;
 	size_t			step;
 
-	if (!s || !(words = malloc(count_words(s, c) * sizeof(char *) + 1)))
+	if (!s || !(words = malloc((count_words(s, c) + 1) * sizeof(char *))))
 		return (NULL);
 	step = 0;
 	while (*s)
