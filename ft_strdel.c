@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_absd.c                                          :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: larosale <larosale@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/06 13:57:07 by larosale          #+#    #+#             */
-/*   Updated: 2020/11/19 03:26:57 by larosale         ###   ########.fr       */
+/*   Created: 2020/11/22 01:54:58 by larosale          #+#    #+#             */
+/*   Updated: 2020/11/22 03:07:53 by larosale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_absd(double d)
+/*
+** Deletes a char, located at "pos" from a null-terminated string.
+*/
+
+void	ft_strdel(char *pos)
 {
-	return (d < 0 ? -d : d);
+	while (*pos)
+	{
+		*pos = *(pos + 1);
+		pos++;
+	}
+	return ;
 }

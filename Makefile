@@ -6,7 +6,7 @@
 #    By: larosale <larosale@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 11:31:09 by larosale          #+#    #+#              #
-#    Updated: 2020/09/13 20:09:28 by larosale         ###   ########.fr        #
+#    Updated: 2020/11/22 02:01:10 by larosale         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ SRCS_REG	= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 			ft_memprint.c ft_wchar_to_utf8.c ft_wstr_to_utf8.c ft_isutf8.c \
 			ft_substr_utf8.c ft_math_log10.c ft_math_floor.c ft_math_pow.c \
 			ft_math_ipow.c ft_math_frexp.c ft_round_double.c ft_isnan.c \
-			ft_isposinf.c ft_isneginf.c ft_strins.c ft_dtoa.c \
+			ft_isposinf.c ft_isneginf.c ft_strins.c ft_strdel.c ft_dtoa.c \
 			ft_signbit.c ft_stripzeros.c ft_convert_double.c ft_absd.c \
-			ft_math_arclen.c get_next_line.c \
+			ft_math_arclen.c ft_strsubst.c get_next_line.c ft_isnumeric.c \
 			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 			ft_lstmap.c
@@ -62,7 +62,7 @@ endif
 
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $<
-	@echo "\033[90m[\033[32mOK\033[90m]\033[34m Compiling $<\033[0m"
+#	@echo "\033[90m[\033[32mOK\033[90m]\033[34m Compiling $<\033[0m"
 
 .PHONY: clean
 clean:

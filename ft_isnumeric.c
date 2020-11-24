@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_absd.c                                          :+:      :+:    :+:   */
+/*   ft_isnumeric.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: larosale <larosale@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/06 13:57:07 by larosale          #+#    #+#             */
-/*   Updated: 2020/11/19 03:26:57 by larosale         ###   ########.fr       */
+/*   Created: 2020/11/08 02:51:48 by larosale          #+#    #+#             */
+/*   Updated: 2020/11/08 03:01:32 by larosale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	ft_absd(double d)
+#include "libft.h"
+
+/*
+** Checks, whether the input string is numeric, i.e. starts with a sign symbol
+** and then consists only of digits.
+** Returns 1 if the string is numeric and 0 otherwise.
+*/
+
+int	ft_isnumeric(char *str)
 {
-	return (d < 0 ? -d : d);
+	if (*str == '+' || *str == '-')
+		str++;
+	while (*str && ft_isdigit(*str))
+		str++;
+	if (*str)
+		return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: larosale <larosale@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 12:36:47 by larosale          #+#    #+#             */
-/*   Updated: 2020/08/14 15:58:41 by larosale         ###   ########.fr       */
+/*   Updated: 2020/11/22 03:08:06 by larosale         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+int					ft_isnumeric(char *str);
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -53,7 +54,8 @@ char				*ft_charstr(int number, unsigned char c);
 char				*ft_strpad(char *input, char pad, int num, int free_flag);
 char				*ft_strconv(char *str, int (*f)(int));
 char				*ft_strins(char *input, char sym, size_t position);
-
+void				ft_strdel(char *pos);
+char				*ft_strsubst(char *str, char *src, char *dst);
 /*
 **----------------------------Conversions---------------------------------------
 */
@@ -162,7 +164,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 ** BUFFER_SIZE determines the reading buffer size.
 */
 
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE 1
 
 /*
 ** REM_LINE and REM_BUFF flags set the source of remainder to be cutted
